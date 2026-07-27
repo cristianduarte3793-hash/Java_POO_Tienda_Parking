@@ -24,4 +24,8 @@ public class Vista_Pasajero {
 
     }
 
+    public void mostrarError(String mensaje) {
+    System.out.println(mensaje);
+    }    
+    
 }

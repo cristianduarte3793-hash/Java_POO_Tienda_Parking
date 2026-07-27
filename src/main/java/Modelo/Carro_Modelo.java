@@ -27,15 +27,15 @@ public class Carro_Modelo {
     // Metodos de responsabilidad 
     
     public boolean validarPlaca() {
-    return !placa_carro.equals("") && placa_carro.length() >= 6;
+    return !placa_carro.trim().equals("") && placa_carro.length() >= 6;
     }
 
     public boolean validarMarca() {
-    return !marca_carro.equals("");
+    return !marca_carro.trim().equals("");
     }
 
     public boolean validarColor() {
-    return !color_carro.equals("");
+    return !color_carro.trim().equals("");
     }
     
 }

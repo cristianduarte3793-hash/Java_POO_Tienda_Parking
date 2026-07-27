@@ -27,11 +27,11 @@ public class Motor_Modelo {
     // Metodos de responsabilidad 
     
     public boolean validarMotor() {
-    return !numero_motor.equals("");
+    return !numero_motor.trim().equals("");
     }
 
     public boolean validarTipo() {
-    return !tipo_motor.equals("");
+    return !tipo_motor.trim().equals("");
     }
 
     public boolean validarCilindraje() {

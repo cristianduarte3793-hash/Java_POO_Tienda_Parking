@@ -27,15 +27,15 @@ public class Chofer_Modelo {
     // Metodos de responsabilidad 
     
     public boolean validarNombre() {
-    return !nombre_chofer.equals("");
+        return !nombre_chofer.trim().equals("");
     }
 
-    public boolean validarCedula(String cedula) {
-    return cedula != null && cedula.matches("\\d{8,10}");
+    public boolean validarCedula() {
+        return cedula_chofer.trim().matches("\\d{8,10}");
     }
 
-    private boolean validarLicencia() {
-    return !licencia_chofer.equals("");
+    public boolean validarLicencia() {
+        return !licencia_chofer.trim().equals("");
     }
     
 }

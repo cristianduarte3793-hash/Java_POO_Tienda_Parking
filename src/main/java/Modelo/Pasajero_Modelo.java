@@ -18,17 +18,17 @@ public class Pasajero_Modelo {
     public String getNombre_Completo() { return nombre_completo; }
 
     // Setters
-    private void setNum_Cedula(String num_cedula) { this.num_cedula = num_cedula; }
+    public void setNum_Cedula(String num_cedula) { this.num_cedula = num_cedula; }
     public void setNombre_Completo(String nombre_completo) { this.nombre_completo = nombre_completo; }
     
     // Metodos de responsabilidad
     
-    public boolean validarCedula(String cedula) {
-    return cedula != null && cedula.matches("\\d{8,10}");
+    public boolean validarCedula() {
+    return num_cedula != null && num_cedula.matches("\\d{8,10}");
     }
 
     public boolean validarNombre() {
-    return !nombre_completo.equals("");
+    return !nombre_completo.trim().equals("");
     }
     
 }

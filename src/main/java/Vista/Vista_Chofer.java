@@ -27,4 +27,9 @@ public class Vista_Chofer {
         System.out.println("Cedula: " + cedula);
         System.out.println("Licencia: " + licencia);
     }
+    
+    public void mostrarError(String mensaje) {
+    System.out.println(mensaje);
+    }
+
 }

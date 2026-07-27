@@ -29,5 +29,9 @@ public class Vista_Carro {
         System.out.println("Color: " + color);
 
     }
+    
+    public void mostrarError(String mensaje) {
+    System.out.println(mensaje);
+    }
 
 }

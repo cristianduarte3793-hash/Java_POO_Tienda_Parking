@@ -29,5 +29,9 @@ public class Vista_Motor {
         System.out.println("Cilindraje: " + cilindraje);
 
     }
+    
+    public void mostrarError(String mensaje) {
+    System.out.println(mensaje);
+    }
 
 }
