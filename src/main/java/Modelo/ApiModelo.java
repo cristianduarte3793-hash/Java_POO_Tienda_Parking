@@ -1,61 +1,98 @@
 package Modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ApiModelo {
-    
-    String clave = " ";
-    String root = " ";
-    String url = " ";
-    
-    public ApiModelo (String url, String usuario, String clave){
-    
-        this.clave = clave;
-        this.root = usuario;
-        this.url = url;
-            
+
+    private String[][] lista_carros;
+    private String[][] lista_motores;
+
+    private List<Chofer_Modelo> lista_chofer;
+    private List<Pasajero_Modelo> lista_pasajero;
+
+    public ApiModelo() {
+
+    this.lista_carros = new String[3][3];
+    this.lista_motores = new String[3][3];
+
+    this.lista_chofer = new ArrayList<>();
+    this.lista_pasajero = new ArrayList<>();
+
+}
+
+    public String[][] getLista_carros() {
+        return lista_carros;
     }
 
-    public String getClave() {
-        return clave;
+    public void setLista_carros(String[][] lista_carros) {
+        this.lista_carros = lista_carros;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public String[][] getLista_motores() {
+        return lista_motores;
     }
 
-    public String getRoot() {
-        return root;
+    public void setLista_motores(String[][] lista_motores) {
+        this.lista_motores = lista_motores;
     }
 
-    public void setRoot(String root) {
-        this.root = root;
+    public List<Chofer_Modelo> getLista_chofer() {
+        return lista_chofer;
     }
 
-    public String getUrl() {
-        return url;
+    public void setLista_chofer(List<Chofer_Modelo> lista_chofer) {
+        this.lista_chofer = lista_chofer;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public List<Pasajero_Modelo> getLista_pasajero() {
+        return lista_pasajero;
     }
-    
-    public boolean validar_conexion (){
 
-        if(this.clave.equals("1234")){
-            return true; 
-        } else{
-            return false;
+    public void setLista_pasajero(List<Pasajero_Modelo> lista_pasajero) {
+        this.lista_pasajero = lista_pasajero;
+    }
+
+    public void guardar_chofer(Chofer_Modelo obj_chofer) {
+        this.lista_chofer.add(obj_chofer);
+    }
+
+    public void guardar_pasajero(Pasajero_Modelo obj_pasajero) {
+        this.lista_pasajero.add(obj_pasajero);
+    }
+
+    public Chofer_Modelo buscar_chofer(String cedula) {
+
+        for (Chofer_Modelo obj_chofer : this.lista_chofer) {
+
+            if (obj_chofer.getCedula_chofer().equals(cedula)) {
+                return obj_chofer;
+            }
+
         }
 
+        return null;
     }
-    
-    public void desconexion(){
-        System.out.println("desconexion realizada...");
-    }
-           
-    public void buscar_chofer(String dato_nombre){
-        System.out.println("Buscando chofer.....");
 
+    public Pasajero_Modelo buscar_pasajero(String cedula) {
+
+        for (Pasajero_Modelo obj_pasajero : this.lista_pasajero) {
+
+            if (obj_pasajero.getNum_Cedula().equals(cedula)) {
+                return obj_pasajero;
+            }
+
+        }
+
+        return null;
     }
-                    
-    
+
+    public List<Chofer_Modelo> listar_choferes() {
+        return this.lista_chofer;
+    }
+
+    public List<Pasajero_Modelo> listar_pasajeros() {
+        return this.lista_pasajero;
+    }
+
 }

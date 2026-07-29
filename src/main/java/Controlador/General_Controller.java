@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.ApiModelo;
 import Modelo.Carro_Modelo;
 import Modelo.Chofer_Modelo;
 import Modelo.Motor_Modelo;
@@ -14,7 +15,8 @@ public class General_Controller {
     public Vista_Chofer obj_vista_chofer;
     public Vista_Carro obj_vista_carro;
     public Vista_Motor obj_vista_motor;
-    public Vista_Pasajero obj_vista_pasajero;
+    public Vista_Pasajero obj_vista_pasajero;   
+    public ApiModelo obj_api;
 
     public General_Controller(
             Vista_Chofer obj_vista_chofer,
@@ -26,6 +28,7 @@ public class General_Controller {
         this.obj_vista_carro = obj_vista_carro;
         this.obj_vista_motor = obj_vista_motor;
         this.obj_vista_pasajero = obj_vista_pasajero;
+        this.obj_api = new ApiModelo();
     }
 
     public void procesar_chofer() {
@@ -57,7 +60,9 @@ public class General_Controller {
             }
 
         } while (!obj_chofer.validarLicencia());
-
+        
+        obj_api.guardar_chofer(obj_chofer);
+        
         obj_vista_chofer.mostrar_datos(
                 obj_chofer.getNombre_chofer(),
                 obj_chofer.getCedula_chofer(),
@@ -159,8 +164,10 @@ public class General_Controller {
 
         } while (!obj_pasajero.validarNombre());
 
+        obj_api.guardar_pasajero(obj_pasajero);
+
         obj_vista_pasajero.mostrar_datos(
-                obj_pasajero.getNum_Cedula(),
-                obj_pasajero.getNombre_Completo());
+            obj_pasajero.getNum_Cedula(),
+            obj_pasajero.getNombre_Completo());
     }
 }
