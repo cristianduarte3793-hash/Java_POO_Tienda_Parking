@@ -13,13 +13,13 @@ public class ApiModelo {
 
     public ApiModelo() {
 
-    this.lista_carros = new String[3][3];
-    this.lista_motores = new String[3][3];
+        this.lista_carros = new String[3][3];
+        this.lista_motores = new String[3][3];
 
-    this.lista_chofer = new ArrayList<>();
-    this.lista_pasajero = new ArrayList<>();
+        this.lista_chofer = new ArrayList<>();
+        this.lista_pasajero = new ArrayList<>();
 
-}
+    }
 
     public String[][] getLista_carros() {
         return lista_carros;
@@ -61,6 +61,34 @@ public class ApiModelo {
         this.lista_pasajero.add(obj_pasajero);
     }
 
+    public void guardar_carros(String[][] carros) {
+
+        for (int i = 0; i < this.lista_carros.length; i++) {
+
+            for (int j = 0; j < this.lista_carros[i].length; j++) {
+
+                this.lista_carros[i][j] = carros[i][j];
+
+            }
+
+        }
+
+    }
+
+    public void guardar_motores(String[][] motores) {
+
+        for (int i = 0; i < this.lista_motores.length; i++) {
+
+            for (int j = 0; j < this.lista_motores[i].length; j++) {
+
+                this.lista_motores[i][j] = motores[i][j];
+
+            }
+
+        }
+
+    }
+
     public Chofer_Modelo buscar_chofer(String cedula) {
 
         for (Chofer_Modelo obj_chofer : this.lista_chofer) {
@@ -94,5 +122,13 @@ public class ApiModelo {
     public List<Pasajero_Modelo> listar_pasajeros() {
         return this.lista_pasajero;
     }
+    
+    public String[][] listar_carros() {
+        return this.lista_carros;
+}
+
+    public String[][] listar_motores() {
+        return this.lista_motores;
+}
 
 }
