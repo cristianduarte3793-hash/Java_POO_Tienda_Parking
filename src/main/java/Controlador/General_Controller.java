@@ -31,7 +31,13 @@ public class General_Controller {
         this.obj_api = new ApiModelo();
     }
 
-    public void procesar_chofer() {
+public void procesar_chofer() {
+
+    for (int i = 0; i < 2; i++) {
+
+        if (i > 0) {
+            obj_vista_chofer.siguiente_chofer();
+        }
 
         Chofer_Modelo obj_chofer = new Chofer_Modelo("", "", "");
 
@@ -39,15 +45,16 @@ public class General_Controller {
             obj_chofer.setNombre_chofer(obj_vista_chofer.tomar_nombre());
 
             if (!obj_chofer.validarNombre()) {
-                obj_vista_chofer.mostrarError("Error: El nombre no puede estar vacío.");
+                obj_vista_chofer.mostrarError("Error: El nombre no puede estar vacio.");
             }
+
         } while (!obj_chofer.validarNombre());
 
         do {
             obj_chofer.setCedula_chofer(obj_vista_chofer.tomar_cedula());
 
             if (!obj_chofer.validarCedula()) {
-                obj_vista_chofer.mostrarError("Error: La cédula debe tener entre 8 y 10 números.");
+                obj_vista_chofer.mostrarError("Error: La cedula debe tener entre 8 y 10 numeros.");
             }
 
         } while (!obj_chofer.validarCedula());
@@ -56,93 +63,63 @@ public class General_Controller {
             obj_chofer.setLicencia_chofer(obj_vista_chofer.tomar_licencia());
 
             if (!obj_chofer.validarLicencia()) {
-                obj_vista_chofer.mostrarError("Error: La licencia no puede estar vacía.");
+                obj_vista_chofer.mostrarError("Error: La licencia no puede estar vacia.");
             }
 
         } while (!obj_chofer.validarLicencia());
-        
+
         obj_api.guardar_chofer(obj_chofer);
-        
+
         obj_vista_chofer.mostrar_datos(
                 obj_chofer.getNombre_chofer(),
                 obj_chofer.getCedula_chofer(),
                 obj_chofer.getLicencia_chofer());
     }
-
+}
     public void procesar_carro() {
 
-        Carro_Modelo obj_carro = new Carro_Modelo("", "", "");
+    String[][] carros = new String[3][3];
 
-        do {
-            obj_carro.setPlaca_carro(obj_vista_carro.tomar_placa());
+        for (int i = 0; i < carros.length; i++) {
+            if (i > 0) {
+                obj_vista_carro.siguiente_carro();
+        }
 
-            if (!obj_carro.validarPlaca()) {
-                obj_vista_carro.mostrarError("Error: La placa debe tener mínimo 6 caracteres.");
-            }
-        } while (!obj_carro.validarPlaca());
+        carros[i][0] = obj_vista_carro.tomar_placa();
+        carros[i][1] = obj_vista_carro.tomar_marca();
+        carros[i][2] = obj_vista_carro.tomar_color();
 
-        do {
-            obj_carro.setMarca_carro(obj_vista_carro.tomar_marca());
+        }
 
-            if (!obj_carro.validarMarca()) {
-                obj_vista_carro.mostrarError("Error: La marca no puede estar vacía.");
-            }
+        obj_api.guardar_carros(carros);
 
-        } while (!obj_carro.validarMarca());
-
-        do {
-            obj_carro.setColor_carro(obj_vista_carro.tomar_color());
-
-            if (!obj_carro.validarColor()) {
-                obj_vista_carro.mostrarError("Error: El color no puede estar vacío.");
-            }
-
-        } while (!obj_carro.validarColor());
-
-        obj_vista_carro.mostrar_datos(
-                obj_carro.getPlaca_carro(),
-                obj_carro.getMarca_carro(),
-                obj_carro.getColor_carro());
     }
 
     public void procesar_motor() {
 
-        Motor_Modelo obj_motor = new Motor_Modelo("", "", "");
+    String[][] motores = new String[3][3];
 
-        do {
-            obj_motor.setNumero_motor(obj_vista_motor.tomar_numero());
+        for (int i = 0; i < motores.length; i++) {
+            if (i > 0) {
+                obj_vista_motor.siguiente_motor();}
 
-            if (!obj_motor.validarMotor()) {
-                obj_vista_motor.mostrarError("Error: El número del motor no puede estar vacío.");
-            }
+        motores[i][0] = obj_vista_motor.tomar_numero();
+        motores[i][1] = obj_vista_motor.tomar_tipo();
+        motores[i][2] = obj_vista_motor.tomar_cilindraje();
 
-        } while (!obj_motor.validarMotor());
+        }
 
-        do {
-            obj_motor.setTipo_motor(obj_vista_motor.tomar_tipo());
+        obj_api.guardar_motores(motores);
 
-            if (!obj_motor.validarTipo()) {
-                obj_vista_motor.mostrarError("Error: El tipo del motor no puede estar vacío.");
-            }
-
-        } while (!obj_motor.validarTipo());
-
-        do {
-            obj_motor.setCilindraje_motor(obj_vista_motor.tomar_cilindraje());
-
-            if (!obj_motor.validarCilindraje()) {
-                obj_vista_motor.mostrarError("Error: El cilindraje solo debe contener números.");
-            }
-
-        } while (!obj_motor.validarCilindraje());
-
-        obj_vista_motor.mostrar_datos(
-                obj_motor.getNumero_motor(),
-                obj_motor.getTipo_motor(),
-                obj_motor.getCilindraje_motor());
     }
 
-    public void procesar_pasajero() {
+public void procesar_pasajero() {
+
+    for (int i = 0; i < 2; i++) {
+
+        if (i > 0) {
+            obj_vista_pasajero.siguiente_pasajero();
+        }
 
         Pasajero_Modelo obj_pasajero = new Pasajero_Modelo("", "");
 
@@ -150,7 +127,7 @@ public class General_Controller {
             obj_pasajero.setNum_Cedula(obj_vista_pasajero.tomar_cedula());
 
             if (!obj_pasajero.validarCedula()) {
-                obj_vista_pasajero.mostrarError("Error: La cédula debe tener entre 8 y 10 números.");
+                obj_vista_pasajero.mostrarError("Error: La cedula debe tener entre 8 y 10 numeros.");
             }
 
         } while (!obj_pasajero.validarCedula());
@@ -159,7 +136,7 @@ public class General_Controller {
             obj_pasajero.setNombre_Completo(obj_vista_pasajero.tomar_nombre());
 
             if (!obj_pasajero.validarNombre()) {
-                obj_vista_pasajero.mostrarError("Error: El nombre no puede estar vacío.");
+                obj_vista_pasajero.mostrarError("Error: El nombre no puede estar vacio.");
             }
 
         } while (!obj_pasajero.validarNombre());
@@ -167,7 +144,8 @@ public class General_Controller {
         obj_api.guardar_pasajero(obj_pasajero);
 
         obj_vista_pasajero.mostrar_datos(
-            obj_pasajero.getNum_Cedula(),
-            obj_pasajero.getNombre_Completo());
+                obj_pasajero.getNum_Cedula(),
+                obj_pasajero.getNombre_Completo());
     }
+}
 }

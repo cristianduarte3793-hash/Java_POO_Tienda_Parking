@@ -20,6 +20,12 @@ public class Vista_Carro {
         System.out.print("Ingrese el color del carro: ");
         return leer.nextLine();
     }
+    
+    public void siguiente_carro() {
+        System.out.println();
+        System.out.println("Introduzca los datos del siguiente carro");
+        System.out.println();
+    }
 
     public void mostrar_datos(String placa, String marca, String color) {
 
@@ -27,7 +33,7 @@ public class Vista_Carro {
         System.out.println("Placa: " + placa);
         System.out.println("Marca: " + marca);
         System.out.println("Color: " + color);
-
+        System.out.println();
     }
     
     public void mostrarError(String mensaje) {

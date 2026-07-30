@@ -20,6 +20,12 @@ public class Vista_Motor {
         System.out.print("Ingrese el cilindraje del motor: ");
         return leer.nextLine();
     }
+    
+    public void siguiente_motor() {
+        System.out.println();
+        System.out.println("Introduzca los datos del siguiente motor");
+        System.out.println();
+    }
 
     public void mostrar_datos(String numero, String tipo, String cilindraje) {
 
@@ -27,7 +33,7 @@ public class Vista_Motor {
         System.out.println("Numero: " + numero);
         System.out.println("Tipo: " + tipo);
         System.out.println("Cilindraje: " + cilindraje);
-
+        System.out.println();
     }
     
     public void mostrarError(String mensaje) {

@@ -16,12 +16,18 @@ public class Vista_Pasajero {
         return leer.nextLine();
     }
 
+    public void siguiente_pasajero() {
+        System.out.println();
+        System.out.println("Introduzca los datos del siguiente pasajero");
+        System.out.println();
+    }
+
     public void mostrar_datos(String cedula, String nombre) {
 
         System.out.println("\n===== DATOS DEL PASAJERO =====");
         System.out.println("Cedula: " + cedula);
         System.out.println("Nombre: " + nombre);
-
+        System.out.println();
     }
 
     public void mostrarError(String mensaje) {
