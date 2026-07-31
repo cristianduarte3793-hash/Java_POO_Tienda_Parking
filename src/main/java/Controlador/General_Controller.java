@@ -83,15 +83,31 @@ public void procesar_chofer() {
         for (int i = 0; i < carros.length; i++) {
             if (i > 0) {
                 obj_vista_carro.siguiente_carro();
+
         }
 
         carros[i][0] = obj_vista_carro.tomar_placa();
         carros[i][1] = obj_vista_carro.tomar_marca();
         carros[i][2] = obj_vista_carro.tomar_color();
+        
+        obj_vista_carro.mostrar_datos(
+            carros[i][0],
+            carros[i][1],
+            carros[i][2]);
 
         }
-
+        
         obj_api.guardar_carros(carros);
+        
+        String[][] lista = obj_api.listar_carros();
+
+            for (int i = 0; i < lista.length; i++) {
+
+        obj_vista_carro.mostrar_datos(
+                lista[i][0],
+                lista[i][1],
+                lista[i][2]);
+    }
 
     }
 
@@ -102,15 +118,20 @@ public void procesar_chofer() {
         for (int i = 0; i < motores.length; i++) {
             if (i > 0) {
                 obj_vista_motor.siguiente_motor();}
+                obj_vista_motor.mostrar_datos("","","");
 
         motores[i][0] = obj_vista_motor.tomar_numero();
         motores[i][1] = obj_vista_motor.tomar_tipo();
         motores[i][2] = obj_vista_motor.tomar_cilindraje();
-
+        
+            obj_vista_motor.mostrar_datos(
+            motores[i][0],
+            motores[i][1],
+            motores[i][2]);
         }
 
         obj_api.guardar_motores(motores);
-
+        
     }
 
 public void procesar_pasajero() {
