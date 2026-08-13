@@ -1,4 +1,4 @@
-package TiendaParking;
+package tiendaparking;
 
 import Controlador.General_Controller;
 import Vista.Vista_Carro;
@@ -10,22 +10,21 @@ public class TiendaParking {
 
     public static void main(String[] args) {
 
-        Vista_Chofer obj_vista_chofer = new Vista_Chofer();
-        Vista_Carro obj_vista_carro = new Vista_Carro();
-        Vista_Motor obj_vista_motor = new Vista_Motor();
-        Vista_Pasajero obj_vista_pasajero = new Vista_Pasajero();
+        Vista_Chofer vista_chofer = new Vista_Chofer();
+        Vista_Carro vista_carro = new Vista_Carro();
+        Vista_Motor vista_motor = new Vista_Motor();
+        Vista_Pasajero vista_pasajero = new Vista_Pasajero();
 
-        General_Controller obj_controlador = new General_Controller(
-                obj_vista_chofer,
-                obj_vista_carro,
-                obj_vista_motor,
-                obj_vista_pasajero);
+        General_Controller controlador = new General_Controller(
+                vista_chofer,
+                vista_carro,
+                vista_motor,
+                vista_pasajero
+        );
 
-        obj_controlador.procesar_chofer();
-        obj_controlador.procesar_carro();
-        obj_controlador.procesar_motor();
-        obj_controlador.procesar_pasajero();
-
+        controlador.procesar_chofer();
+        controlador.procesar_carro();
+        controlador.procesar_motor();
+        controlador.procesar_pasajero();
     }
-
 }
